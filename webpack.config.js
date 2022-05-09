@@ -47,7 +47,7 @@ const environmentPlugin = new webpack.EnvironmentPlugin({
   IS_CLOUD_INSTANCE: false
 });
 
-const dashboardBuildPath = "build/dashboard/";
+const dashboardBuildPath = "build/";
 
 module.exports = speedMeasureWrapper((env, argv) => {
   const devMode = argv.mode !== "production";
@@ -88,7 +88,7 @@ module.exports = speedMeasureWrapper((env, argv) => {
     process.env.SENTRY_AUTH_TOKEN
   ) {
     sentryPlugin = new SentryWebpackPlugin({
-      include: "./build/dashboard/",
+      include: "./build/",
       urlPrefix: process.env.SENTRY_URL_PREFIX
     });
   }
